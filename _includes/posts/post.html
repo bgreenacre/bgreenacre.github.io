@@ -1,0 +1,14 @@
+{% assign content_item = false %}
+{% if post %}
+    {% assign content_item = post %}
+{% else %}
+    {% assign content_item = page %}
+{% endif %}
+
+{% assign skipuri = "/index.html|/about.html" | split: "|" %}
+{% assign pageuri = "/index.html" | split: "|" %}
+{% unless skipuri contains page.url %}
+{{ content }}
+{% else %}
+{{ content_item.content }}
+{% endunless %}
