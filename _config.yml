@@ -1,10 +1,15 @@
 # Jekyll
-exclude: README.md, manifest.yml, rakefile.rb, Gemfile, Gemfile.lock, update.sh
+exclude:
+    - README.md
+    - manifest.yml
+    - rakefile.rb
+    - Gemfile
+    - Gemfile.lock
+    - update.sh
 permalink: /:title
 url: http://bgreenacre.github.io/
 
 safe: false
-auto: false
 
 future: false
 pygments: true
