@@ -1,6 +1,6 @@
 ---
 title: Some things to ponder.
-layout: detail
+layout: default
 author:
     name: Brian Greenacre
     url: http://bgreenacre.github.io/
