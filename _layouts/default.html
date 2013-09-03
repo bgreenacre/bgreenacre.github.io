@@ -6,14 +6,16 @@
         {% include assets/css/default.html %}
         {% include assets/js/default.html %}
     </head>
-    <body id="{% include page/id %}">
-        {% include header/navigation.html %}
-        <div class="container">
-            <div class="row">
-                <div class="span8">
-                    {% include posts/latest.html %}
-                </div>
-                <div class="span4 sidebar">
+    <body>
+        <div id="wrap">
+            {% include header/navigation.html %}
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        {% include posts/latest.html %}
+                    </div>
+                    <div class="span4 sidebar">
+                    </div>
                 </div>
             </div>
         </div>
