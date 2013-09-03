@@ -5,10 +5,15 @@
     {% assign content_item = page %}
 {% endif %}
 
+<h2><a href="{{ content_item.url }}">{{ content_item.title }}</a></h2>
+<hr />
 {% assign skipuri = "/index.html|/about.html" | split: "|" %}
 {% assign pageuri = "/index.html" | split: "|" %}
 {% unless skipuri contains page.url %}
+<p><span class="glyphicon glyphicon-time"></span> Posted on {{ content_item.date | date: "%B %e, %Y" }}</p>
+<hr />
 {{ content }}
 {% else %}
 {{ content_item.content }}
 {% endunless %}
+<hr />
