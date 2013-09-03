@@ -7,4 +7,4 @@ I'm a web developer, sysadmin, devops, dba and business owner. I'm currently wor
 
 I consider myself a regular book reader, music enthusiast, dog owner and tinkerer.
 
-If you'd like to contact me you can reach me via (Twitter)[https://twitter.com/bgreenacre42] or just (email me)(mailto:bgreenacre42@gmail.com).
+If you'd like to contact me you can reach me via [twitter](https://twitter.com/bgreenacre42) or just [email me](mailto:bgreenacre42@gmail.com).
