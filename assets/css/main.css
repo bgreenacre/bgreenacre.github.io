@@ -50,3 +50,6 @@ code {
 .footer-links li:first-child {
   padding-left: 0;
 }
+.navbar .social-links {
+  font-size: 20px;
+}
