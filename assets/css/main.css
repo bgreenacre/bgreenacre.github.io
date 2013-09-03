@@ -26,7 +26,8 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 #wrap > .container {
-  padding: 60px 15px 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 .container .credit {
   margin: 20px 0;
