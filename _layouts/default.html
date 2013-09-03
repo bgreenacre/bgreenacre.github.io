@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{ page.title }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {% include assets/css/default.html %}
+        {% include assets/js/default.html %}
+    </head>
+    <body id="{% include page/id %}">
+        {% include header/navigation.html %}
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    {% include posts/latest.html %}
+                </div>
+                <div class="span4 sidebar">
+                </div>
+            </div>
+        </div>
+        {% include footer/index.html %}
+    </body>
+</html>

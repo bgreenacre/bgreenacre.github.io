@@ -1,0 +1,10 @@
+# Jekyll
+exclude: README.md, manifest.yml, rakefile.rb, Gemfile, Gemfile.lock, update.sh
+permalink: /:title
+
+safe: false
+auto: false
+
+future: false
+pygments: true
+markdown: rdiscount
