@@ -1,6 +1,6 @@
 ---
-title: Some things to ponder.
-layout: default
+title: Some things to ponder
+layout: page
 author:
     name: Brian Greenacre
     url: http://bgreenacre.github.io/
