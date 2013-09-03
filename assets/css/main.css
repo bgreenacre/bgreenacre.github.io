@@ -29,7 +29,8 @@ body {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.container .credit {
+.container .credit,
+.container .footer-links {
   margin: 20px 0;
 }
 
@@ -42,9 +43,6 @@ code {
   font-size: 80%;
 }
 
-.footer-links {
-    margin: 10px 0px;
-}
 .footer-links li {
   display: inline;
   padding: 0 2px;
