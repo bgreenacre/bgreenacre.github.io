@@ -1,6 +1,6 @@
 ---
 title: About
-layout: default
+layout: page
 ---
 
 This is my about page.

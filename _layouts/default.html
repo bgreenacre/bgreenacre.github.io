@@ -12,12 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        {% case page.url %}
-                            {% when '/index.html' %}
-                                {% include posts/latest.html %}
-                            {% else %}
-                                {% include posts/post.html %}
-                        {% endcase %}
+                        {{ content }}
                     </div>
                     <div class="col-lg-4 sidebar">
                     </div>
