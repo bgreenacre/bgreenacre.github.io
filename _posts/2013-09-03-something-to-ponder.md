@@ -54,7 +54,7 @@ CREATE TABLE `condition_values` (
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 {% endhighlight %}
 
-The SQL should make it pretty clear what each table does. The next problem was how to query these tables with a set of conditions to get variables and their values in, preferably, an associative array or iterable object.
+The SQL should make it pretty clear what each table does. The next problem was how to query these tables with a set of conditions to get variables and their values in, preferably, an associative array or iterable object. It also needed to be done in one query.
 
 Something like ...
 {% highlight php %}
