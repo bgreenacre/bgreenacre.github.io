@@ -53,3 +53,23 @@ CREATE TABLE `condition_values` (
   KEY `variable_id` (`base_tag_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 {% endhighlight %}
+
+The SQL should make it pretty clear what each table does. The next problem was how to query these tables with a set of conditions to get variables and their values in, preferably, an associative array or iterable object.
+
+Something like ...
+{% highlight php %}
+$conditionsArr = array(
+  'condition1' => 4,
+  'condition2' => 1,
+  'condition3' => '2|4',
+);
+
+var_dump(getVariables($conditionsArr));
+
+// Would return an array of variables
+// 
+// array(
+//   'var1' => 'some value',
+//   'var2' => 'other value',
+// );
+{% endhighlight %}
