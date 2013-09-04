@@ -8,4 +8,8 @@
 <hr />
 <p><span class="glyphicon glyphicon-time"></span> Posted on {{ item.date | date: "%B %e, %Y" }}</p>
 <hr />
+{% if post %}
+{{ item.excerpt }}
+{% else %}
 {{ item.content }}
+{% endif %}
