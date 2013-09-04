@@ -12,15 +12,15 @@ Matt was actually a year younger than me but he clearly had more experience than
 
 Why?
 
-Well, why doesn't entirely matter but I'll focus on the _technical_ reason since this post is pretty much focused around that. So for each pdf template there can be several variables that can be used to inject copy inline where the variable is within a PDF Block (think <code>str_replace(':variable_name:', 'some content should go here', $some_copy))</code>) but each variable can have one of several defined variables based on an arbitrary amount of conditions that need to be met. So guess how those conditions were tested for each variable? Yup. A ton of if/if else/else conditions were wrapping the assignment of each of these variables. WTF right? Basically, the people that wrote this file originally just didn't know how to manage these conditions nor did the client (my boss). During my time spent there I tried very hard to improve that file but due to the size, complexity, lack of testing, importance and my lack of experience I just couldn't ever get it into something manageable but I had a very good idea.
+Well, why doesn't entirely matter but I'll focus on the _technical_ reason since this post is pretty much focused around that. So for each pdf template there can be several variables that can be used to inject copy inline where the variable is within a PDF Block (think <code>str_replace(':variable_name:', 'some content should go here', $some_copy)</code>) but each variable can have one of several defined variables based on an arbitrary amount of conditions that need to be met. So guess how those conditions were tested for each variable? Yup. A ton of if/if else/else conditions were wrapping the assignment of each of these variables. WTF right? Basically, the people that wrote this file originally just didn't know how to manage these conditions nor did the client (my boss). During my time spent there I tried very hard to improve that file but due to the size, complexity, lack of testing, importance and my lack of experience I just couldn't ever get it into something manageable but I had a very good idea.
 
-*The Idea*
+**The Idea**
 
 At the time, I had one solution in mind and that was to get all the variables and their values into a database schema. Accomplishing that alone isn't that hard but I wanted to also store the logical conditions in which each value was assigned to a variable. That's the hard part. How does one store those conditions per variable but also how does one query for that? The first part of this question I came up with, surprisingly, quickly. My solution involved 4 tables; variables, conditions, values and condition_values. The tables variables and values are pretty self-explanitory but conditions and condition_values is the fun part.
 
 Table conditions holds only a primary key and varchar that gives the condition a name (ie. customer_state). Table condition_values holds a primary key, a key that connects with a variable row and a value (ie. Illinois). The variable table held variable names and the values table had a key to the variable it belongs to but also a key to a condition_value (also a column that held the variable value). I hope this is making sense so far.
 
-*SQL*
+**SQL**
 
 {% highlight sql %}
 CREATE TABLE `variables` (
