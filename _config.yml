@@ -7,7 +7,7 @@ exclude:
     - Gemfile.lock
     - update.sh
 permalink: /:title
-url: http://bgreenacre.github.io/
+url: http://bgreenacre.com/
 
 safe: false
 
