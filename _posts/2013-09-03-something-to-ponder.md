@@ -27,31 +27,31 @@ CREATE TABLE `variables` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `values` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `variable_id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `variable_id` (`variable_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `condition_values` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `condition_value_id` int(10) NOT NULL,
   `condition_id` int(10) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
-  KEY `condition_value_id` (`row_id`),
-  KEY `condition_id` (`case_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+  KEY `condition_value_id` (`condition_value_id`),
+  KEY `condition_id` (`condition_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `conditions` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
-
-CREATE TABLE `condition_values` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `variable_id` int(11) NOT NULL,
-  `value` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`),
-  KEY `variable_id` (`base_tag_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 {% endhighlight %}
 
 The SQL should make it pretty clear what each table does. The next problem was how to query these tables with a set of conditions to get variables and their values in, preferably, an associative array or iterable object. It also needed to be done in one query.
