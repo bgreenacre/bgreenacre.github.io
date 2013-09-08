@@ -73,3 +73,43 @@ var_dump(getVariables($conditionsArr));
 //   'var2' => 'other value',
 // );
 {% endhighlight %}
+
+{% highlight php %}
+$cases = array('case1' => '111', 'case2' => '112');
+
+$selectStr = 'SELECT DISTINCT v.id, v.value, var.name, ';
+$fromStr   = 'FROM `values` AS v, variables AS var';
+$whereStr  = 'WHERE var.id = v.variable_id';
+$superWhere = ' WHERE ';
+$count = 1;
+
+foreach ($cases as $key => $value)
+{
+    $superWhere .= sprintf('built.%s = "%s" AND ', $key, $value);
+
+    $aliasName = 'conditional' . $count;
+
+    $selectStr .= sprintf('%s.value AS %s, ', $aliasName, $key);
+    $fromStr   .= sprintf(', `condition_values` AS %s, `conditions` AS c%d ', $aliasName, $count);
+
+    if ($count === 1)
+    {
+        $whereStr .= sprintf(' AND %s.condition_value_id = v.id', $aliasName);
+    }
+    else
+    {
+        $whereStr .= sprintf(' AND %s.condition_value_id = conditional%d.condition_value_id', $aliasName, $count - 1);
+    }
+
+    $whereStr .= sprintf(' AND %s.condition_id = c%d.id AND c%d.name = "%s"', $aliasName, $count, $count, $key);
+
+    ++$count;
+}
+
+$selectStr = rtrim($selectStr, ', ') . ' ';
+$qStr = $selectStr . $fromStr . $whereStr;
+
+$bigQuery = sprintf('SELECT built.name, built.value FROM (%s) AS built, %s', $qStr, rtrim($superWhere, ' AND '));
+
+echo $bigQuery;
+{% endhighlight %}
